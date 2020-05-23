@@ -1,2 +1,3 @@
 # React
-Repositório destinado ao curso de React
+
+Repositório destinado ao estudo pessoal da tecnologia React.
