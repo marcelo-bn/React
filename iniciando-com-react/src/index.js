@@ -5,7 +5,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App nome="Marcelo" idade={99}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

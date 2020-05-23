@@ -23,13 +23,18 @@ class App extends React.Component {
     )
   }
 
+  componentDidMount(){
+    console.log('Executou DidMount')
+  }
+
   render(){
+    console.log('Executou Render')
     const MeuComboBox = () => this.criaComboBox()
 
     return (
       <> 
         <input type="text" value={this.state.nome} onChange={this.modificarNome}/>
-        <h1>Olá, {this.state.nome}!</h1>  
+        <h1>Olá, {this.props.nome}. Sua idade é de {this.props.idade} anos.</h1>  
         <MeuComboBox />
       </>
     )
