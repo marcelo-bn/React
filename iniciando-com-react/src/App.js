@@ -22,7 +22,7 @@ function App (props){
 
   return (
     <> 
-      <input type="text" value={props.nome} onChange={modificarNome}/>
+      <input className="text-centralizado" type="text" value={props.nome} onChange={modificarNome}/>
       <h1>Olá, {props.nome}. Sua idade é de {props.idade} anos.</h1>  
       <MeuComboBox />
     </>
