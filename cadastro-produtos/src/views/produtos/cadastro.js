@@ -1,13 +1,22 @@
 import React from 'react'
 
+import ProdutoService from '../../app/produtoService'
+
+const estadoInicial = {
+    nome: '',
+    sku: '',
+    descricao: '',
+    preco: 0,
+    fornecedor: ''
+}
+
 export default class CadastroProduto extends React.Component {
 
-    state = {
-        nome: '',
-        sku: '',
-        descricao: '',
-        preco: 0,
-        fornecedor: ''
+    state = estadoInicial
+
+    constructor(){
+        super()
+        this.service = new ProdutoService();
     }
 
     onChange = (event) => {
@@ -18,7 +27,20 @@ export default class CadastroProduto extends React.Component {
     }
 
     onSubmit = (event) => {
-        console.log(this.state)
+        const produto = {
+            nome: this.state.nome,
+            sku: this.state.sku,
+            descricao: this.state.descricao,
+            preco: this.state.preco,
+            fornecedor: this.state.fornecedor
+        }
+        this.service.salvar(produto)
+        console.log('Salvo com sucesso!')
+        this.limpaCampos()
+    }
+
+    limpaCampos = () => {
+        this.setState(estadoInicial)
     }
 
     render(){
@@ -101,7 +123,7 @@ export default class CadastroProduto extends React.Component {
                         </div>
 
                         <div className="col-md-1">
-                            <button className="btn btn-primary">Limpar</button>
+                            <button onClick={this.limpaCampos} className="btn btn-primary">Limpar</button>
                         </div>
 
                     </div>
